@@ -2,65 +2,33 @@
 
 ## Project Duration
 
-The Portfolio Developer project was developed over a span of 3 days, from June 4, 2024, to June 6, 2024.
+<!-- The Portfolio Developer project was developed over a span of 3 days, from June 4, 2024, to June 6, 2024. -->
 
-## 2024-06-04 - Morning
+## 2024-06-10 - Afternoon
 
 ### Project Setup
 
-- Set up the project files.
-- Initialized the project on [GitHub](https://github.com/nicholasgillespie/portfolio-developer).
-- Deployed the project to [GitHub Pages](https://nicholasgillespie.github.io/portfolio-developer/).
+- Set up the project files, organizing them according to the planned architecture.
+- Initialized the project on [GitHub](https://github.com/nicholasgillespie/portfolio-design), ensuring all initial files were committed and pushed.
+- Began exploring Astro as the development tool for this project, diverging from the usual Vite setup. This involved:
+  - Installing Astro via npm to ensure the latest version is used.
+  - Going through the Astro documentation to understand the basics and how it differs from Vite.
+  - Setting up a basic Astro project structure to get familiar with the file organization and component system.
 
-### Design Review
+## 2024-06-13 - Morning
 
-- Reviewed the [Figma file](https://www.figma.com/design/GYHHinLxe2GZzy0y7JkMDJ/single-page-developer-portfolio?node-id=0-676&t=5XkTNLgJ6tUsAYzd-0) to:
+### Design Review & Theme Setup
 
-  - Defined the project [design tokens](https://github.com/nicholasgillespie/body-mass/tree/main/src/styles/00-settings).
-  - Identified the sections, main elements/components, and the [macro layout](../design/01-composition.jpg).
-  <!-- - Further identified the components and determined the [micro layout](../design/02-components.jpg) for those elements. -->
+- Identified the sections, main elements/components, and the [macro layout](../design/01-composition.jpg).
+- Defined the project [design tokens](https://github.com/nicholasgillespie/portfolio-design/tree/main/src/styles/00-settings).
 
-## 2024-06-04 - Afternoon
+## 2024-06-13 - Afternoon
 
-### Site Head Structure
+### Section - solutions
 
-- Started setting up the structure for the `site-head` component.
-- Leveraged CSS Grid for a responsive layout with three columns and five rows. Positioned `site-head__nav`, `site-head__text`, and `site-head__img` within this grid for flexible adjustments across viewports.
-
-## 2024-06-05 - Morning
-
-### Site Head Completion
-
-- Completed `site-head` component, now fully responsive.
-
-## 2024-06-05 - Afternoon
-
-### Sections Skill and Project
-
-- Worked on and completed the layout for the "Skill" and "Projects" sections, making them responsive.
-
-**To Do:**
-
-- For the "Skill" section, position the rings pattern.
-- For the "Projects" section, implement hover effect on the project images to display/hide links depending on screen size.
-
-## 2024-06-06 - Morning
-
-### Sections Skill and Project
-
-- Completed the pending TODO tasks.
-
-## 2024-06-06 - Afternoon
-
-### Section Project and Contact
-
-- Finalized the "Project" section and resolved some production issues.
-- Built and completed the "Contact" form.
-
-**To Do:**
-
-- Deal with email errors in the contact form.
-- Include a theme-break in between contact and footer sections.
+- Implemented the "Solutions" section with responsive design and accessibility enhancements, including:
+  - Adjusting layouts for different screen sizes using CSS grid and flexbox.
+  - Adding skip links for better navigation and accessibility.
 
 ---
 

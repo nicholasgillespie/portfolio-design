@@ -4,7 +4,7 @@ Visit the live site here: [Portfolio Design Website](https://nicholasgillespie.g
 
 ## Overview
 
-The Portfolio Design is a Vite and PostCSS-based project, hosted on GitHub Pages. It incorporates the in-development W3C design system, utilizing SCSS syntax for styling.
+The Portfolio Design is an Astro and PostCSS-based project, hosted on GitHub Pages. It incorporates the in-development W3C design system, utilizing SCSS syntax for styling.
 
 [![Screenshot of the Portfolio Design project](./docs/design/preview.jpg)](https://nicholasgillespie.github.io/portfolio-design/)
 

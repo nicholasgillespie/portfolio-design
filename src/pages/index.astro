@@ -1,16 +1,66 @@
 ---
-
+import DisciplinesItem from "../components/DisciplinesItem.astro"
+import SkipLink from "../components/SkipLink.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
+const title = "Home"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={title}>
+	<section class="solutions | l-wrapper l-region">
+		<div class="solutions__content | l-flow">
+			<h1>Design solutions made easy</h1>
+			<p>With over ten years of experience in various design disciplines, I’m your one-stop shop for your design needs.</p>
+		</div>
+		<div class="solutions__disciplines">
+			<h2 class="u-vh">Design disciplines</h2>
+			<ul role="list" class="l-columns | u-position--relative">
+				<SkipLink targetId="about" />
+				<DisciplinesItem title="Graphic Design" />
+				<DisciplinesItem title="UI/UX" />
+				<DisciplinesItem title="Apps" />
+				<DisciplinesItem title="Illustrations" />
+				<DisciplinesItem title="Photography" />
+				<DisciplinesItem title="Motion Graphics" />
+			</ul>
+		</div>
+	</section>
+
+	<section id="about"></section>
+</BaseLayout>
+
+<style lang="scss">
+	@import '../styles/20-mixins/media-query.scss';
+
+	.solutions {
+		--space-region: var(--space-region-s);
+
+		&__content {
+			text-align: center;
+
+			& > * {
+				margin-inline: auto;
+			}
+		}
+
+		&__disciplines {
+			--space-skip-link-inline: var(--space-gutter-s);
+			padding-block-start: var(--space-region-s);
+			
+			.l-columns {
+				--columns: 6; 
+				--space-columns: var(--space-gutter-s); 
+				grid-template-rows: repeat(2, 1fr);
+
+				@include media-query(up-to, desktop) {
+					--columns: 4; 
+					grid-template-rows: repeat(3, 1fr);
+				}
+
+				@include media-query(up-to, tablet) {
+					--columns: 2; 
+					grid-template-rows: repeat(3, 1fr);
+				}
+			}
+		}
+	}
+</style>

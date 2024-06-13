@@ -1,0 +1,147 @@
+---
+const { title } = Astro.props;
+const formattedTitle = title.toLowerCase().replace(/[\s\/]+/g, '-');
+---
+
+<li class=`${formattedTitle}`>
+  <a href="#" class="l-box l-repel">
+    <img src={`/images/pattern-${formattedTitle}.svg`} alt="">
+    <h3>{title}</h3>
+  </a>
+</li>
+
+<style lang="scss">
+  @import '../styles/20-mixins/media-query.scss';
+
+  li {
+    --repel-direction: column;
+    --repel-wrap: nowrap;		
+  } 
+
+  a {
+    --space-box: var(--space-gutter-s);		
+    block-size: 100%;
+    align-content: space-between;
+    text-decoration: none;
+    background-color: var(--color-light-red);
+    color: var(--color-light-cream);
+
+    &:hover, 
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    margin-inline-start: auto;
+    max-inline-size: 50%;
+  }
+
+  h3 {
+    color: var(--color-light-cream);
+    margin-inline-end: auto;
+  }
+
+  .graphic-design {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    
+    a {
+      background-color: var(--color-galactic-blue);
+    }
+  }
+  .ui-ux {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+
+    a {
+      background-color: var(--color-summer-yellow);
+    }
+  }
+  .apps {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+      
+    a {
+      background-color: var(--color-pink);
+    }
+  }
+  .illustrations {	
+    grid-column: 3 / 5;
+    grid-row: 2 / 2;
+
+    a {;
+      background-color: var(--color-light-red);
+    }
+  }
+  .photography {
+    grid-column: 5 / 7;
+    grid-row: 1 / 2;
+      
+    a {
+      background-color: var(--color-cyan);
+    }
+  }
+  .motion-graphics {
+    grid-column: 5 / 7;
+    grid-row: 2 / 3;
+                
+    a {
+      background-color: var(--color-dark-purple);
+    }
+  }
+
+  @include media-query(up-to, desktop) {
+    .graphic-design {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+    .ui-ux {
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
+    }
+    .apps {
+      grid-column: 4 / 5;
+      grid-row: 1 / 2;
+    }
+    .illustrations {	
+      grid-column: 3 / 5;
+      grid-row: 2 / 2;
+    }
+    .photography {
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+    }
+    .motion-graphics {
+      grid-column: 3 / 5;
+      grid-row: 3 / 4;
+    }
+  }
+  
+  @include media-query(up-to, tablet) {
+    .graphic-design {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+    .ui-ux {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
+    .apps {
+      grid-column: 2 / 3;
+      grid-row: 3 / 4;
+    }
+    .illustrations {	
+      grid-column: 1 / 3;
+      grid-row: 4 / 5;
+    }
+    .photography {
+      grid-column: 1 / 3;
+      grid-row: 5 / 6;
+    }
+    .motion-graphics {
+      grid-column: 1 / 3;
+      grid-row: 6 / 7;
+    }
+  }
+</style>

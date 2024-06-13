@@ -1,0 +1,19 @@
+---
+import LogoLink from "./LogoLink.astro";
+import Button from "./Button.astro";
+---
+
+<footer class="site-footer">
+  <div class="l-wrapper | l-repel">
+    <LogoLink />
+    <Button label="free consultation" />
+  </div>
+</footer>
+
+<style lang="scss">
+  .site-footer {
+    --space-repel: var(--space-gutter-s);
+    padding-block-start: var(--space-gutter-l);
+    padding-block-end: var(--space-gutter-m);
+  }
+</style>

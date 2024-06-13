@@ -1,0 +1,23 @@
+---
+import SkipLink from "./SkipLink.astro";
+import LogoLink from "./LogoLink.astro";
+import Button from "./Button.astro";
+---
+
+<header class="site-header">
+  <SkipLink targetId="main" />
+
+  <div class="l-wrapper">
+    <div class="site-header__inner | l-repel">
+      <LogoLink />
+      <Button label="free consultation" />
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  .site-header {
+    --space-repel: var(--space-gutter-s);
+    padding-block-start: var(--space-gutter-s);
+  }
+</style>

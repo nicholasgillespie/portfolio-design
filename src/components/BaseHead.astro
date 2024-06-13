@@ -1,0 +1,40 @@
+---
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+import "../styles/core.scss";
+const { title } = Astro.props;
+---
+
+<head>
+  <!-- Encoding & Viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Title & Description -->
+  <title>{ title }</title>
+  <!-- <meta
+    name="description"
+    content="Adam Keyes, a UK-based front-end design with expertise in HTML, CSS, JavaScript, Accessibility, React, and Sass. Specializes in accessible web apps. Explore his diverse projects and get in touch for your project needs."
+  /> -->
+
+  <!-- Canonical link -->
+  <link
+    rel="canonical"
+    href="https://nicholasgillespie.github.io/portfolio-design/"
+  />
+
+  <!-- Favicon and Theme Color -->
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+  <meta name="theme-color" content="#755cde" />
+
+  <!-- Google Fonts -->
+  <!-- <link
+    href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+    rel="stylesheet"
+  /> -->
+
+  <!-- Astro Generator Meta Tag -->
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- View Transitions -->
+  <ViewTransitions />
+</head>
