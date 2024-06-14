@@ -77,18 +77,18 @@ const title = "Home"
       }
     }
       
-    @include media-query(up-to, desktop) {
-      --space-wrapper: 0px var(--space-gutter);
+    // @include media-query(up-to, desktop) {
+    //   --space-wrapper: 0px var(--space-gutter);
       
-      &__photo {
-        padding-inline-end: calc(var(--space-gutter) * 2);
-        margin-inline-start: calc(var(--space-gutter) * -1);
+    //   &__photo {
+    //     padding-inline-end: calc(var(--space-gutter) * 2);
+    //     margin-inline-start: calc(var(--space-gutter) * -1);
 
-        img {
-            padding-inline-end: calc(var(--space-m-2xl) - calc(var(--space-gutter) * 2));
-        }
-      }
-    }
+    //     img {
+    //         padding-inline-end: calc(var(--space-m-2xl) - calc(var(--space-gutter) * 2));
+    //     }
+    //   }
+    // }
       
     @include media-query(up-to, tablet) {
       --space-wrapper: var(--space-gutter);
