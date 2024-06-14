@@ -42,9 +42,9 @@
     <div class="l-box l-frame">
       <img src="images/image-slide-4.jpg" alt="">
     </div>
-    <div class="l-box l-frame">
+    <!-- <div class="l-box l-frame">
       <img src="images/image-slide-5.jpg" alt="">
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -66,10 +66,11 @@
       totalWidthOfBoxes += boxWidth;
 
       // // If the number of boxes is even, adjust the centering to the box prior to the middle
-      // if (boxes.length % 2 === 0 && index === (boxes.length / 2) - 1) {
-      //   // Subtract the border width of the box prior to the middle from the adjustment
-      //   centeringAdjustment = (boxWidth - parseInt(style.borderLeftWidth) - parseInt(style.borderRightWidth)) / 2;
-      // } else {
+      if (boxes.length % 2 === 0 && index === (boxes.length / 2) - 1) {
+        // Subtract the border width of the box prior to the middle from the adjustment
+        centeringAdjustment = (boxWidth - parseInt(style.borderLeftWidth) - parseInt(style.borderRightWidth)) / 2;
+      } 
+      // else {
       //   // Subtract the border width of the box prior to the middle from the adjustment
       //   centeringAdjustment = (parseInt(style.borderLeftWidth) + parseInt(style.borderRightWidth));
       // }
