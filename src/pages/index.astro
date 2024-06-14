@@ -91,16 +91,16 @@ const title = "Home"
     }
       
     @include media-query(up-to, tablet) {
-      --space-wrapper: var(--space-gutter) 2rem;
+      --space-wrapper: var(--space-gutter);
       --switcher-item-target-width: 999rem;
       text-align: center;
       
       &__photo {
-        padding-inline-end: 0;
-        margin-inline-start: 0;
+        padding-inline-end: 0px;
+        margin-inline-start: 0px;
         
         img {
-            padding-inline-end: 0;
+            padding-inline-end: 0px;
         }
       }
     }
