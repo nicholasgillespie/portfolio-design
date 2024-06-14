@@ -77,8 +77,8 @@ const title = "Home"
       }
     }
       
-    // @include media-query(up-to, desktop) {
-    //   --space-wrapper: 0px var(--space-gutter);
+    @include media-query(up-to, desktop) {
+      --space-wrapper: 0px var(--space-gutter);
       
     //   &__photo {
     //     padding-inline-end: calc(var(--space-gutter) * 2);
@@ -88,14 +88,12 @@ const title = "Home"
     //         padding-inline-end: calc(var(--space-m-2xl) - calc(var(--space-gutter) * 2));
     //     }
     //   }
-    // }
+    }
       
     @include media-query(up-to, tablet) {
-      --switcher-item-target-width: 30rem;
-
-      // --space-wrapper: var(--space-gutter);
-      // --switcher-item-target-width: 999rem;
-      // text-align: center;
+      --switcher-item-target-width: 999rem;
+      --space-wrapper: var(--space-gutter);
+      text-align: center;
       
       &__photo {
         // padding-inline-end: 0px;
