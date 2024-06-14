@@ -77,28 +77,27 @@ const title = "Home"
       }
     }
       
-    // @include media-query(up-to, desktop) {
-      // --space-wrapper: 0px var(--space-gutter);
+    @include media-query(up-to, desktop) {
+      --space-wrapper: 0px var(--space-gutter);
       
-    //   &__photo {
-    //     padding-inline-end: calc(var(--space-gutter) * 2);
-    //     margin-inline-start: calc(var(--space-gutter) * -1);
+      &__photo {
+        padding-inline-end: calc(var(--space-gutter) * 2);
+        margin-inline-start: calc(var(--space-gutter) * -1);
 
-    //     img {
-    //         padding-inline-end: calc(var(--space-m-2xl) - calc(var(--space-gutter) * 2));
-    //     }
-    //   }
-    // }
+        img {
+            padding-inline-end: calc(var(--space-m-2xl) - calc(var(--space-gutter) * 2));
+        }
+      }
+    }
       
     @include media-query(up-to, tablet) {
       --switcher-item-target-width: 999rem;
-      // --space-wrapper: var(--space-gutter) var(--space-gutter);
-      // padding-inline: var(--space-gutter) var(--space-gutter);
+      --space-wrapper: var(--space-gutter);
       text-align: center;
       
       &__photo {
-        // padding-inline-end: 0px;
-        // margin-inline-start: 0px;
+        padding-inline-end: 0px;
+        margin-inline-start: 0px;
         
         img {
             padding-inline-end: 0px;
