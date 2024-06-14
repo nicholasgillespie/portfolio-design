@@ -90,20 +90,20 @@ const title = "Home"
     //   }
     // }
       
-    // @include media-query(up-to, tablet) {
-    //   --switcher-item-target-width: 999rem;
-    //   // --space-wrapper: var(--space-gutter) var(--space-gutter);
-    //   // padding-inline: var(--space-gutter) var(--space-gutter);
-    //   text-align: center;
+    @include media-query(up-to, tablet) {
+      --switcher-item-target-width: 999rem;
+      // --space-wrapper: var(--space-gutter) var(--space-gutter);
+      // padding-inline: var(--space-gutter) var(--space-gutter);
+      text-align: center;
       
-    //   &__photo {
-    //     // padding-inline-end: 0px;
-    //     // margin-inline-start: 0px;
+      &__photo {
+        // padding-inline-end: 0px;
+        // margin-inline-start: 0px;
         
-    //     img {
-    //         // padding-inline-end: 0px;
-    //     }
-    //   }
-    // }
+        img {
+            padding-inline-end: 0px;
+        }
+      }
+    }
   }
 </style>
