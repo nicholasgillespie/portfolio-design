@@ -19,6 +19,7 @@ const { targetId } = Astro.props;
 
   // Style the skip link
   inline-size: max-content;
+  max-inline-size: var(--space-skip-link-max-inline, calc(100vw - 2 * var(--space-gutter)));
   z-index: 999;
 }
 </style>
