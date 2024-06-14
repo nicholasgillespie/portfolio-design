@@ -65,7 +65,8 @@
       totalWidthOfBoxes += boxWidth;
       // console.log(totalWidthOfBoxes);
       // console.log(parseInt(style.marginLeft));
-
+      centeringAdjustment = - parseInt(style.marginLeft) - (parseInt(style.borderLeftWidth) * 2);
+      console.log(boxWidth - centeringAdjustment);
 
       // // If the number of boxes is even, adjust the centering to the box prior to the middle
       if (boxes.length % 2 === 0 && index === (boxes.length / 2) - 1) {
@@ -78,6 +79,7 @@
       //   centeringAdjustment = (parseInt(style.borderLeftWidth) + parseInt(style.borderRightWidth));
       // }
     });
+    console.log(centeringAdjustment);
 
     // Calculate the initial scroll position to center the content
     // Adjust for even number of boxes by subtracting the centeringAdjustment
@@ -97,7 +99,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-color: #fff #000;
-    padding-inline: var(--space-gutter);
+    margin-inline: var(--space-gutter);
 
     & .l-box {
       --space-box: 0;
