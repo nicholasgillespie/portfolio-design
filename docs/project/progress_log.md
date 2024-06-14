@@ -26,24 +26,30 @@
 
 ### Section - solutions
 
-- Implemented the "Solutions" section with responsive design and accessibility enhancements, including:
-
+- Implemented the "Solutions" section with responsive design and accessibility features:
   - Adjusting layouts for different screen sizes using CSS grid and flexbox.
-  - Adding skip links for better navigation and accessibility.
-
-  ## 2024-06-13 - Afternoon
-
-### Section - solutions
-
-- Implemented the "Solutions" section with responsive design and accessibility enhancements, including:
-  - Adjusting layouts for different screen sizes using CSS grid and flexbox.
-  - Adding skip links for better navigation and accessibility.
+  - Adding skip links for improved navigation and accessibility.
 
 ### Section - about
 
 - Completed the "About" section, incorporating:
   - A responsive layout that adapts to all screen sizes.
-  - Accessibility features.
+
+## 2024-06-14 - Morning and Afternoon
+
+Spent the morning and afternoon developing an accessible reel/carousel. The following progress has been made:
+
+- Created the basic structure of the reel/carousel using HTML and CSS, ensuring it is fully responsive and accessible.
+- Implemented JavaScript to dynamically adjust the scroll position of the reel, centering the content on load. This includes handling for both even and odd numbers of items in the reel.
+- Applied custom styling to the scrollbar for enhanced visual appeal, while maintaining accessibility standards.
+
+### To-Do:
+
+- Refine scrollbar styling for better aesthetics and accessibility.
+- Add accessible "Previous" and "Next" navigation buttons with keyboard support.
+- Implement CSS Scroll Snap for smooth navigation, ensuring compatibility with keyboard controls.
+- Use JavaScript to conditionally hide the scrollbar on page load, maintaining it if JavaScript is disabled.
+- Test and adjust keyboard navigation to ensure a logical and intuitive flow through carousel items.
 
 ---
 

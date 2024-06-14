@@ -1,50 +1,24 @@
 ---
-// window.addEventListener('load', () => {
-//   const reel = document.querySelector('.reel') as HTMLElement;
-//   const boxes = reel.querySelectorAll('.l-box');
-//   const middleIndex = Math.floor(boxes.length / 2);
-//   let scrollPosition = 0;
 
-//   for (let i = 0; i < middleIndex; i++) {
-//     const box = boxes[i] as HTMLElement; // Assert that each box is an HTMLElement
-//     scrollPosition += box.offsetWidth + parseInt(getComputedStyle(box).marginRight);
-//   }
-
-//   scrollPosition -= (window.innerWidth - (boxes[middleIndex] as HTMLElement).offsetWidth) / 2;
-
-//   reel.scrollLeft = scrollPosition;
-// });
 ---
-
-<!-- <div class="slider | l-canvas--full-width">
-  <div class="slider__slides">
-    <div class="l-box l-frame">1</div>
-    <div class="l-box l-frame">2</div>
-    <div class="l-box l-frame">3</div>
-  </div>
-  <div class="slider__controls | l-cluster">
-    <span>x</span>
-    <span>x</span>
-  </div>
-</div> -->
 
 <div class="l-canvas--full-width">
   <div class="reel | u-mbs-l-xl">
-    <div class="l-box l-frame">
+    <a href="#" class="l-box l-frame">
       <img src="images/image-slide-1.jpg" alt="">
-    </div>
-    <div class="l-box l-frame">
+    </a>
+    <a href="#" class="l-box l-frame">
       <img src="images/image-slide-2.jpg" alt="">
-    </div>
-    <div class="l-box l-frame">
+    </a>
+    <a href="#" class="l-box l-frame">
       <img src="images/image-slide-3.jpg" alt="">
-    </div>
-    <div class="l-box l-frame">
+    </a>
+    <a href="#" class="l-box l-frame">
       <img src="images/image-slide-4.jpg" alt="">
-    </div>
-    <!-- <div class="l-box l-frame">
+    </a>
+    <a href="#" class="l-box l-frame">
       <img src="images/image-slide-5.jpg" alt="">
-    </div> -->
+    </a>
   </div>
 </div>
 
@@ -104,12 +78,6 @@
 
   .reel > * {
     flex: 0 0 auto;
-  }
-
-  .reel > img {
-    block-size: 100%;
-    flex-basis: auto;
-    inline-size: auto;
   }
 
   .reel > * + * {
