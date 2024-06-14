@@ -3,6 +3,7 @@ import DisciplinesItem from "../components/DisciplinesItem.astro"
 import SkipLink from "../components/SkipLink.astro"
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Button from "../components/Button.astro";
+import Slider from "../components/Slider.astro";
 const title = "Home"
 ---
 
@@ -37,6 +38,16 @@ const title = "Home"
         <Button label="free consultation" variant="secondary" />
     </div>
   </section>
+
+  <section class="work | l-canvas l-region">
+    <h2>My Work</h2>
+    <Slider>
+      <!-- <img src="images/image-1.webp" alt="A design project">
+      <img src="images/image-2.webp" alt="A design project">
+      <img src="images/image-3.webp" alt="A design project">
+      <img src="images/image-4.webp" alt="A design project"> -->
+    </Slider>
+  </section>
 </BaseLayout>
 
 <style lang="scss">
@@ -45,6 +56,10 @@ const title = "Home"
   .solutions {
     --space-region: var(--space-region-s);
     --space-skip-link-max-inline: calc(100vw - 4 * var(--space-gutter));
+
+    &__content {
+      max-inline-size: unset;
+    }
 
     &__disciplines {
       --space-skip-link-inline: var(--space-gutter-s);
@@ -105,5 +120,10 @@ const title = "Home"
         }
       }
     }
+  }
+
+  .work {
+    --space-region: var(--space-gutter-m);
+    text-align: center;
   }
 </style>

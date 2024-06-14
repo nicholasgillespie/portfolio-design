@@ -1,0 +1,129 @@
+---
+// window.addEventListener('load', () => {
+//   const reel = document.querySelector('.reel') as HTMLElement;
+//   const boxes = reel.querySelectorAll('.l-box');
+//   const middleIndex = Math.floor(boxes.length / 2);
+//   let scrollPosition = 0;
+
+//   for (let i = 0; i < middleIndex; i++) {
+//     const box = boxes[i] as HTMLElement; // Assert that each box is an HTMLElement
+//     scrollPosition += box.offsetWidth + parseInt(getComputedStyle(box).marginRight);
+//   }
+
+//   scrollPosition -= (window.innerWidth - (boxes[middleIndex] as HTMLElement).offsetWidth) / 2;
+
+//   reel.scrollLeft = scrollPosition;
+// });
+---
+
+<!-- <div class="slider | l-canvas--full-width">
+  <div class="slider__slides">
+    <div class="l-box l-frame">1</div>
+    <div class="l-box l-frame">2</div>
+    <div class="l-box l-frame">3</div>
+  </div>
+  <div class="slider__controls | l-cluster">
+    <span>x</span>
+    <span>x</span>
+  </div>
+</div> -->
+
+<div class="l-canvas--full-width">
+  <div class="reel | u-mbs-l-xl">
+    <div class="l-box l-frame">
+      <img src="images/image-slide-1.jpg" alt="">
+    </div>
+    <div class="l-box l-frame">
+      <img src="images/image-slide-2.jpg" alt="">
+    </div>
+    <div class="l-box l-frame">
+      <img src="images/image-slide-3.jpg" alt="">
+    </div>
+    <div class="l-box l-frame">
+      <img src="images/image-slide-4.jpg" alt="">
+    </div>
+    <div class="l-box l-frame">
+      <img src="images/image-slide-5.jpg" alt="">
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const reel = document.querySelector('.reel') as HTMLElement;
+    const boxes = reel.querySelectorAll('.l-box');
+    let totalWidthOfBoxes = 0;
+    let centeringAdjustment = 0;
+
+    // Calculate the total width of all boxes including margins and borders
+    boxes.forEach((box, index) => {
+      const style = getComputedStyle(box);
+      const boxWidth = (box as HTMLElement).offsetWidth 
+        + parseInt(style.marginRight) 
+        + parseInt(style.marginLeft) 
+        + parseInt(style.borderLeftWidth) 
+        + parseInt(style.borderRightWidth);
+      totalWidthOfBoxes += boxWidth;
+
+      // If the number of boxes is even, adjust the centering to the box prior to the middle
+      if (boxes.length % 2 === 0 && index === (boxes.length / 2) - 1) {
+        // Subtract the border width of the box prior to the middle from the adjustment
+        centeringAdjustment = (boxWidth - parseInt(style.borderLeftWidth) - parseInt(style.borderRightWidth)) / 2;
+      } else {
+        // Subtract the border width of the box prior to the middle from the adjustment
+        centeringAdjustment = (parseInt(style.borderLeftWidth) + parseInt(style.borderRightWidth));
+      }
+    });
+
+    // Calculate the initial scroll position to center the content
+    // Adjust for even number of boxes by subtracting the centeringAdjustment
+    const scrollPosition = ((totalWidthOfBoxes - window.innerWidth) / 2) - centeringAdjustment;
+
+    reel.scrollLeft = scrollPosition;
+  });
+</script>
+
+<style lang="scss">
+  // @import '../styles/20-mixins/media-query.scss';
+
+  .reel {
+    display: flex;
+    block-size: min(50vh, 50vw);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: #fff #000;
+
+    & .l-box {
+      --space-box: 0;
+    }
+  }
+
+  .reel::-webkit-scrollbar {
+    block-size: 1rem;
+  }
+  .reel::-webkit-scrollbar-track {
+    background-color: #000;
+  }
+  .reel::-webkit-scrollbar-thumb {
+    background-color: #000;
+    background-image: linear-gradient(#000 0, #000 0.25rem, #fff 0.25rem, #fff 0.75rem, #000 0.75rem);
+  }
+
+  .reel > * {
+    flex: 0 0 auto;
+  }
+
+  .reel > img {
+    block-size: 100%;
+    flex-basis: auto;
+    inline-size: auto;
+  }
+
+  .reel > * + * {
+    margin-inline-start: var(--space-gutter-s);
+  }
+
+  .reel.overflowing {
+    // padding-block-end: 1rem;
+  }
+</style>
