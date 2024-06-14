@@ -58,12 +58,14 @@
     // Calculate the total width of all boxes including margins and borders
     boxes.forEach((box, index) => {
       const style = getComputedStyle(box);
-      const boxWidth = (box as HTMLElement).offsetWidth 
-        + parseInt(style.marginRight) 
-        + parseInt(style.marginLeft) 
+      let boxWidth = (box as HTMLElement).offsetWidth 
         + parseInt(style.borderLeftWidth) 
-        + parseInt(style.borderRightWidth);
+        + parseInt(style.borderRightWidth)
+        + parseInt(style.marginLeft);
       totalWidthOfBoxes += boxWidth;
+      // console.log(totalWidthOfBoxes);
+      // console.log(parseInt(style.marginLeft));
+
 
       // // If the number of boxes is even, adjust the centering to the box prior to the middle
       if (boxes.length % 2 === 0 && index === (boxes.length / 2) - 1) {
@@ -80,6 +82,7 @@
     // Calculate the initial scroll position to center the content
     // Adjust for even number of boxes by subtracting the centeringAdjustment
     const scrollPosition = ((totalWidthOfBoxes - window.innerWidth) / 2) - centeringAdjustment;
+    // console.log(totalWidthOfBoxes / 2);
 
     reel.scrollLeft = scrollPosition;
   });
@@ -94,6 +97,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-color: #fff #000;
+    padding-inline: var(--space-gutter);
 
     & .l-box {
       --space-box: 0;
@@ -123,13 +127,6 @@
 
   .reel > * + * {
     margin-inline-start: var(--space-gutter-s);
-  }
-
-  .reel > :first-child {
-    margin-inline-start: var(--space-gutter);
-  }
-  .reel > :last-child {
-    margin-inline-end: var(--space-gutter);
   }
 
   .reel.overflowing {
