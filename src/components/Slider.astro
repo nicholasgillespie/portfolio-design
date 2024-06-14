@@ -42,9 +42,9 @@
     <div class="l-box l-frame">
       <img src="images/image-slide-4.jpg" alt="">
     </div>
-    <div class="l-box l-frame">
+    <!-- <div class="l-box l-frame">
       <img src="images/image-slide-5.jpg" alt="">
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -52,41 +52,26 @@
   window.addEventListener('load', () => {
     const reel = document.querySelector('.reel') as HTMLElement;
     const boxes = reel.querySelectorAll('.l-box');
-    let totalWidthOfBoxes = 0;
-    let centeringAdjustment = 0;
 
-    // Calculate the total width of all boxes including margins and borders
-    boxes.forEach((box, index) => {
-      const style = getComputedStyle(box);
-      let boxWidth = (box as HTMLElement).offsetWidth 
-        + parseInt(style.borderLeftWidth) 
-        + parseInt(style.borderRightWidth)
-        + parseInt(style.marginLeft);
-      totalWidthOfBoxes += boxWidth;
-      // console.log(totalWidthOfBoxes);
-      // console.log(parseInt(style.marginLeft));
-      centeringAdjustment = - parseInt(style.marginLeft) - (parseInt(style.borderLeftWidth) * 2);
-      console.log(boxWidth - centeringAdjustment);
+    const scrollWidth = reel.scrollWidth;
+    const visibleWidth = reel.offsetWidth;
+    let centeringAdjustment = (scrollWidth - visibleWidth) / 2;
 
-      // // If the number of boxes is even, adjust the centering to the box prior to the middle
-      if (boxes.length % 2 === 0 && index === (boxes.length / 2) - 1) {
-        // Subtract the border width of the box prior to the middle from the adjustment
-        // centeringAdjustment = (boxWidth - parseInt(style.borderLeftWidth) - parseInt(style.borderRightWidth)) / 2;
-        centeringAdjustment = boxWidth / 2;
-      } 
-      // else {
-      //   // Subtract the border width of the box prior to the middle from the adjustment
-      //   centeringAdjustment = (parseInt(style.borderLeftWidth) + parseInt(style.borderRightWidth));
-      // }
-    });
-    console.log(centeringAdjustment);
+    // Check if the number of items is even
+    if (boxes.length % 2 === 0) {
+      // Ensure the element is treated as an HTMLElement to access offsetWidth
+      const firstBox = boxes[0] as HTMLElement;
+      const style = getComputedStyle(firstBox);
+      let boxWidth = firstBox.offsetWidth; // Now correctly typed as HTMLElement
+      let marginLeft = parseInt(style.marginLeft);
+      let marginRight = parseInt(style.marginRight);
 
-    // Calculate the initial scroll position to center the content
-    // Adjust for even number of boxes by subtracting the centeringAdjustment
-    const scrollPosition = ((totalWidthOfBoxes - window.innerWidth) / 2) - centeringAdjustment;
-    // console.log(totalWidthOfBoxes / 2);
+      // Adjust the centering to the box prior to the middle
+      centeringAdjustment -= (boxWidth + marginLeft + marginRight) / 2;
+    }
 
-    reel.scrollLeft = scrollPosition;
+    // Set the scroll position to the adjusted center
+    reel.scrollLeft = centeringAdjustment;
   });
 </script>
 
@@ -99,7 +84,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-color: #fff #000;
-    margin-inline: var(--space-gutter);
+    padding-inline: var(--space-gutter);
 
     & .l-box {
       --space-box: 0;
