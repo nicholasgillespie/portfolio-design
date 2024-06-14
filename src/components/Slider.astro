@@ -65,14 +65,14 @@
         + parseInt(style.borderRightWidth);
       totalWidthOfBoxes += boxWidth;
 
-      // If the number of boxes is even, adjust the centering to the box prior to the middle
-      if (boxes.length % 2 === 0 && index === (boxes.length / 2) - 1) {
-        // Subtract the border width of the box prior to the middle from the adjustment
-        centeringAdjustment = (boxWidth - parseInt(style.borderLeftWidth) - parseInt(style.borderRightWidth)) / 2;
-      } else {
-        // Subtract the border width of the box prior to the middle from the adjustment
-        centeringAdjustment = (parseInt(style.borderLeftWidth) + parseInt(style.borderRightWidth));
-      }
+      // // If the number of boxes is even, adjust the centering to the box prior to the middle
+      // if (boxes.length % 2 === 0 && index === (boxes.length / 2) - 1) {
+      //   // Subtract the border width of the box prior to the middle from the adjustment
+      //   centeringAdjustment = (boxWidth - parseInt(style.borderLeftWidth) - parseInt(style.borderRightWidth)) / 2;
+      // } else {
+      //   // Subtract the border width of the box prior to the middle from the adjustment
+      //   centeringAdjustment = (parseInt(style.borderLeftWidth) + parseInt(style.borderRightWidth));
+      // }
     });
 
     // Calculate the initial scroll position to center the content
