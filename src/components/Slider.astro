@@ -42,9 +42,9 @@
     <div class="l-box l-frame">
       <img src="images/image-slide-4.jpg" alt="">
     </div>
-    <!-- <div class="l-box l-frame">
+    <div class="l-box l-frame">
       <img src="images/image-slide-5.jpg" alt="">
-    </div> -->
+    </div>
   </div>
 </div>
 
@@ -60,14 +60,14 @@
     // Check if the number of items is even
     if (boxes.length % 2 === 0) {
       // Ensure the element is treated as an HTMLElement to access offsetWidth
-      const firstBox = boxes[0] as HTMLElement;
-      const style = getComputedStyle(firstBox);
-      let boxWidth = firstBox.offsetWidth; // Now correctly typed as HTMLElement
+      const lastBox = boxes[boxes.length - 1] as HTMLElement;
+      const style = getComputedStyle(lastBox);
+      let boxWidth = lastBox.offsetWidth; // Includes content, padding, and border, but not margin
       let marginLeft = parseInt(style.marginLeft);
-      let marginRight = parseInt(style.marginRight);
 
       // Adjust the centering to the box prior to the middle
-      centeringAdjustment -= (boxWidth + marginLeft + marginRight) / 2;
+      // No need to adjust for border width in boxWidth calculation, as offsetWidth already includes it
+      centeringAdjustment -= (boxWidth + marginLeft) / 2;
     }
 
     // Set the scroll position to the adjusted center
