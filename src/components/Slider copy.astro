@@ -121,7 +121,6 @@ const { images } = Astro.props;
   .reel {
     position: relative;
     --space-skip-link-block: calc(var(--space-l-xl) + var(--space-gutter));
-    --space-skip-link-inline: calc(var(--space-gutter) + var(--space-gutter-s));
   }
 
   .reel__images {
@@ -133,6 +132,18 @@ const { images } = Astro.props;
 
     & .l-box {
       --space-box: 0;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        background-color: red; /* Adjust the color as needed */
+        transform: translateX(-50%);
+      }
     }
 
     // Hide scrollbar for Webkit (Chrome, Safari, newer versions of Opera)
@@ -147,14 +158,8 @@ const { images } = Astro.props;
     flex: 0 0 auto;
     }
 
-    /* Apply margin-inline-start to all direct children */
-    /* Reset margin for the first element and elements immediately following #skipLink and #image-description */
-    & > * {
+    & > * + * {
       margin-inline-start: var(--space-gutter-s);
-    }
-    & > :first-child,
-    & > #image-description + * {
-      margin-inline-start: 0;
     }
   }
 
