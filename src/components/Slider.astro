@@ -1,15 +1,15 @@
 ---
 import SkipLink from "./SkipLink.astro";
-const { images } = Astro.props;
+const { items } = Astro.props;
 ---
 
 <div class="reel | l-canvas--full-width">
   <ul role="list" class="reel__images | u-mbs-l-xl">
-    <SkipLink targetId="book" />
+    <SkipLink targetId="contact" />
     <span aria-live="polite" class="u-vh" id="image-description"></span>
-    {images.map((image) => (
+    {items.map((item) => (
       <li class="l-box l-frame">
-        <img src={`images/${image.src}`} alt={image.alt} />
+        <img src={`images/${item.src}`} alt={item.alt} />
       </li>
     ))}
   </ul>

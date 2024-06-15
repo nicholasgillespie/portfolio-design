@@ -2,7 +2,7 @@
 
 ## Project Duration
 
-<!-- The Portfolio Developer project was developed over a span of 3 days, from June 4, 2024, to June 6, 2024. -->
+The Portfolio Developer project was actively developed over a period of 4 days, starting on June 10, 2024, and concluding on June 15, 2024.
 
 ## 2024-06-10 - Afternoon
 
@@ -61,6 +61,20 @@ Spent the morning and afternoon developing an accessible reel/carousel. The foll
 - Implemented JavaScript for dynamic centering of reel content and navigation button functionality.
 - Added "Previous" and "Next" buttons with ARIA labels for accessible navigation.
 - Integrated SkipLink for better navigation accessibility.
+
+## 2024-06-15 - Afternoon
+
+### Section - Slider
+
+- Addressed and resolved spacing issues within the slider component to ensure consistent and visually appealing layout across different screen sizes.
+
+### Section - Contact
+
+- Developed the Contact section.
+
+### General
+
+- Site completion: With the finalization of the Contact section, all planned sections of the website are now developed and integrated. The site is fully functional and ready for final review and launch.
 
 ---
 

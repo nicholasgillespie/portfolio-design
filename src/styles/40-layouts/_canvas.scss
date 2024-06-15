@@ -6,7 +6,7 @@
  * CUSTOM PROPERTIES AND CONFIGURATION
  * --canvas-full-width: Full content width, minimum of gutter space or 1 fraction of available space.
  * --canvas-content: Content section width, minimum of 100% minus twice gutter space or max layout width.
- * --canvas-quarter: A quarter of the content width.
+ * --canvas-section-width: A quarter of the content width.
  *
  * GRID STRUCTURE
  * The .l-canvas grid has 6 columns. By default, direct children fill the content columns. 
@@ -22,12 +22,19 @@
     100% - (var(--space-gutter) * 2),
     var(--layout-base-max)
   );
-  --canvas-quarter: calc(var(--canvas-content) / 4);
+  --canvas-section-count: 3;
+  --canvas-section-width: calc(
+    var(--canvas-content) / var(--canvas-section-count)
+  );
 
   display: grid;
   grid-template-columns:
     [full-width-start] var(--canvas-full-width)
-    [content-start] repeat(4, var(--canvas-quarter)) [content-end]
+    [content-start] repeat(
+      var(--canvas-section-count),
+      var(--canvas-section-width)
+    )
+    [content-end]
     var(--canvas-full-width) [full-width-end];
   position: relative;
 

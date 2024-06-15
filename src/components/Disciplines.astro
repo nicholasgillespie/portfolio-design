@@ -1,0 +1,29 @@
+---
+import SkipLink from "./SkipLink.astro";
+import DisciplinesItem from "./DisciplinesItem.astro";
+const { items } = Astro.props;
+---
+
+<ul role="list" class="l-columns | u-position--relative">
+  <SkipLink targetId="about" />
+  {items.map(item => (
+    <DisciplinesItem title={item.title} />
+  ))}
+</ul>
+
+<style lang="scss">
+  @import '../styles/20-mixins/media-query.scss';
+      
+  .l-columns {
+    --columns: 6; 
+    --space-columns: var(--space-gutter-s); 
+
+    @include media-query(up-to, desktop) {
+        --columns: 4; 
+    }
+
+    @include media-query(up-to, tablet) {
+        --columns: 2; 
+    }
+  }
+</style>

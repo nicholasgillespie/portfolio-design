@@ -1,7 +1,6 @@
 ---
-import DisciplinesItem from "../components/DisciplinesItem.astro"
-import SkipLink from "../components/SkipLink.astro"
 import BaseLayout from "../layouts/BaseLayout.astro"
+import Disciplines from "../components/Disciplines.astro";
 import Button from "../components/Button.astro";
 import Slider from "../components/Slider.astro";
 const title = "Home"
@@ -16,15 +15,14 @@ const title = "Home"
 
     <div class="solutions__disciplines">
       <h2 class="u-vh">Design disciplines</h2>
-      <ul role="list" class="l-columns | u-position--relative">
-          <SkipLink targetId="about" />
-          <DisciplinesItem title="Graphic Design" />
-          <DisciplinesItem title="UI/UX" />
-          <DisciplinesItem title="Apps" />
-          <DisciplinesItem title="Illustrations" />
-          <DisciplinesItem title="Photography" />
-          <DisciplinesItem title="Motion Graphics" />
-      </ul>
+      <Disciplines items={[
+        { title: "Graphic Design" },
+        { title: "UI/UX" },
+        { title: "Apps" },
+        { title: "Illustrations" },
+        { title: "Photography" },
+        { title: "Motion Graphics" }
+      ]} />
     </div>
   </section>
 
@@ -41,7 +39,7 @@ const title = "Home"
 
   <section class="work | l-canvas l-region">
     <h2>My Work</h2>
-    <Slider images={[
+    <Slider items={[
       { src: "image-slide-1.jpg", alt: "Image 1" },
       { src: "image-slide-2.jpg", alt: "Image 2" },
       { src: "image-slide-3.jpg", alt: "Image 3" },
@@ -50,8 +48,18 @@ const title = "Home"
     ]} />
   </section>
 
-  <section id="book">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi sit incidunt, eius nesciunt dolore delectus a corrupti id laborum. Veniam porro illum iste, laudantium non sed ducimus accusamus debitis voluptas mollitia fuga, odio asperiores libero pariatur voluptatem nostrum praesentium, vero beatae laborum tempora odit quis. Quasi reprehenderit accusamus doloremque delectus dolores repellat? Maxime incidunt at consequuntur, earum, vel ullam obcaecati perferendis autem perspiciatis harum animi aspernatur cupiditate reprehenderit vitae soluta minus, quaerat cum pariatur iure reiciendis dolore hic! Eaque sit quod dolorum veniam. Voluptatibus nam perferendis perspiciatis recusandae molestiae provident blanditiis asperiores quasi quod. Quidem, similique doloremque! Tenetur ipsa, adipisci unde sequi reiciendis architecto voluptate nesciunt velit id explicabo impedit distinctio. Adipisci, reiciendis nemo delectus soluta et maiores quia ullam quo ipsam rem labore ipsa molestiae aliquid nostrum eveniet temporibus ex suscipit sint. Quasi, accusamus fuga. Illum iure sint repellendus. Ratione atque autem a sapiente necessitatibus repellat iure minima eum, totam, sunt adipisci. Modi illo sapiente maiores sequi unde aliquam, nisi, laboriosam atque similique neque in necessitatibus molestias. Expedita mollitia explicabo dolore fugiat tenetur eius aut sapiente, esse, quaerat velit molestiae. Voluptatem sunt sint, delectus accusantium voluptatum eius consequatur eos itaque nam optio nulla error eligendi laboriosam minus vel quam!</p>
+  <section id="contact" class="contact">
+    <div class="l-wrapper l-region">
+      <div class="contact__content | l-box">
+        <div class="l-flow">
+          <h2>Book a call with me</h2>
+          <p>I’d love to have a chat to see how I can help you. The best first step is for us to discuss your project during a free consultation. Then we can move forward from there.</p>
+        </div>
+        <div>
+          <Button label="free consulation" variant="secondary" />
+        </div>
+      </div>
+    </div>
   </section>
 </BaseLayout>
 
@@ -69,19 +77,6 @@ const title = "Home"
     &__disciplines {
       --space-skip-link-inline: var(--space-gutter-s);
       padding-block-start: var(--space-region-s);
-      
-      .l-columns {
-        --columns: 6; 
-        --space-columns: var(--space-gutter-s); 
-
-        @include media-query(up-to, desktop) {
-            --columns: 4; 
-        }
-
-        @include media-query(up-to, tablet) {
-            --columns: 2; 
-        }
-      }
     }
   }
 
@@ -130,5 +125,47 @@ const title = "Home"
   .work {
     --space-region: var(--space-gutter-m);
     text-align: center;
+  }
+
+  .contact {
+    --space-region: var(--space-region-l);
+
+    &__content {
+      background-color: var(--color-black);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-gutter-s);
+      padding-block: var(--space-region-s);
+      
+      h2 {
+        color: var(--color-light-cream);
+      }
+      
+      & > div:last-of-type {
+        display: grid;
+        place-items: center;
+      }
+
+      @include media-query(up-to, desktop) {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        text-align: center;
+      }
+    }
+
+    .l-canvas {
+      & > div:first-of-type {
+        --measure: 52ch;
+        grid-column: content-start / span 2;
+        margin-inline-end: calc(var(--space-gutter-s) / 2);
+      }
+
+      & > div:last-of-type {
+        grid-column: 4 / span 1;
+        margin-inline-start: calc(var(--space-gutter-s) / 2);
+        text-align: center;
+        margin-block: auto;
+      }
+    }
   }
 </style>
