@@ -131,14 +131,19 @@ const title = "Home"
     --space-region: var(--space-region-l);
 
     &__content {
+      --measure: 55ch;
       background-color: var(--color-black);
       display: grid;
       grid-template-columns: 2fr 1fr;
-      gap: var(--space-gutter-s);
       padding-block: var(--space-region-s);
       
       h2 {
         color: var(--color-light-cream);
+      }
+
+      & > div:first-of-type {
+        display: grid;
+        padding-inline-end: var(--space-gutter-l);
       }
       
       & > div:last-of-type {

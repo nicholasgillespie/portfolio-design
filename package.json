@@ -13,8 +13,10 @@
     "astro": "^4.10.1"
   },
   "devDependencies": {
+    "astro-purgecss": "^4.1.1",
     "prettier": "^3.3.2",
     "prettier-plugin-astro": "^0.14.0",
+    "purgecss": "^6.0.0",
     "sass": "^1.77.4"
   }
 }
