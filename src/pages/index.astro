@@ -70,14 +70,16 @@ const title = "Home"
 
   .solutions {
     --space-region: var(--space-region-s);
-    --space-skip-link-max-inline: calc(100vw - 4 * var(--space-gutter));
-
+    
     &__content {
       max-inline-size: unset;
-    }
-
-    &__disciplines {
+      }
+      
+      &__disciplines {
+      --space-skip-link-max-inline: calc(100vw - 4 * var(--space-gutter));
+      --space-skip-link-block: calc(var(--space-region-s) + var(--space-gutter-s));
       --space-skip-link-inline: var(--space-gutter-s);
+      position: relative;
       padding-block-start: var(--space-region-s);
     }
   }

@@ -2,10 +2,10 @@
 const { targetId } = Astro.props;
 ---
 
-<a href={`#${targetId}`} id="skip-link" class="button">{`Skip to ${targetId}`}</a>
+<a href={`#${targetId}`} id={`skip-link-#${targetId}`} class="skip-link button">{`Skip to ${targetId}`}</a>
 
 <style lang="scss">
-  #skip-link {
+  .skip-link {
   // Position the skip link off-screen
   position: absolute;
   inset-block-start: -100vh;
