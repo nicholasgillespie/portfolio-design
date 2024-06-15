@@ -45,11 +45,22 @@ Spent the morning and afternoon developing an accessible reel/carousel. The foll
 
 ### To-Do:
 
+- Convert the reel/carousel structure from `div` elements to a `ul` with `li` elements for better semantic HTML and accessibility.
 - Refine scrollbar styling for better aesthetics and accessibility.
 - Add accessible "Previous" and "Next" navigation buttons with keyboard support.
 - Implement CSS Scroll Snap for smooth navigation, ensuring compatibility with keyboard controls.
 - Use JavaScript to conditionally hide the scrollbar on page load, maintaining it if JavaScript is disabled.
 - Test and adjust keyboard navigation to ensure a logical and intuitive flow through carousel items.
+
+## 2024-06-15 - Morning
+
+### Section - reel
+
+- Converted the reel/carousel with a `ul` and `li` structure for improved semantics and accessibility.
+- Removed the scrollbar for simplicity and visual appeal.
+- Implemented JavaScript for dynamic centering of reel content and navigation button functionality.
+- Added "Previous" and "Next" buttons with ARIA labels for accessible navigation.
+- Integrated SkipLink for better navigation accessibility.
 
 ---
 

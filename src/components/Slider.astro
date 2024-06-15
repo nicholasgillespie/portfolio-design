@@ -1,90 +1,160 @@
 ---
-
+import SkipLink from "./SkipLink.astro";
+const { images } = Astro.props;
 ---
 
-<div class="l-canvas--full-width">
-  <div class="reel | u-mbs-l-xl">
-    <a href="#" class="l-box l-frame">
-      <img src="images/image-slide-1.jpg" alt="">
-    </a>
-    <a href="#" class="l-box l-frame">
-      <img src="images/image-slide-2.jpg" alt="">
-    </a>
-    <a href="#" class="l-box l-frame">
-      <img src="images/image-slide-3.jpg" alt="">
-    </a>
-    <a href="#" class="l-box l-frame">
-      <img src="images/image-slide-4.jpg" alt="">
-    </a>
-    <a href="#" class="l-box l-frame">
-      <img src="images/image-slide-5.jpg" alt="">
-    </a>
+<div class="reel | l-canvas--full-width">
+  <ul role="list" class="reel__images | u-mbs-l-xl">
+    <SkipLink targetId="book" />
+    <span aria-live="polite" class="u-vh" id="image-description"></span>
+    {images.map((image) => (
+      <li class="l-box l-frame">
+        <img src={`images/${image.src}`} alt={image.alt} />
+      </li>
+    ))}
+  </ul>
+  <div class="reel__controls | l-cluster | u-mbs-l-xl">
+    <span id="controls-description" class="u-vh">
+      Use the previous and next buttons to navigate through the images.
+    </span>
+    <button id="reelButtonPrev" class="button" aria-label="Go to the previous image" aria-describedby="controls-description">
+      <img src="images/icon-arrow-left.svg" alt="">
+    </button>
+    <button id="reelButtonNext" class="button" aria-label="Go to the next image" aria-describedby="controls-description">
+      <img src="images/icon-arrow-right.svg" alt="">
+    </button>
   </div>
 </div>
 
 <script>
-  window.addEventListener('load', () => {
-    const reel = document.querySelector('.reel') as HTMLElement;
-    const boxes = reel.querySelectorAll('.l-box');
-
+  // Function to center the reel
+  function centerReel(reel, boxes) {
     const scrollWidth = reel.scrollWidth;
     const visibleWidth = reel.offsetWidth;
     let centeringAdjustment = (scrollWidth - visibleWidth) / 2;
 
-    // Check if the number of items is even
     if (boxes.length % 2 === 0) {
-      // Ensure the element is treated as an HTMLElement to access offsetWidth
-      const lastBox = boxes[boxes.length - 1] as HTMLElement;
+      const lastBox = boxes[boxes.length - 1];
       const style = getComputedStyle(lastBox);
-      let boxWidth = lastBox.offsetWidth; // Includes content, padding, and border, but not margin
+      let boxWidth = lastBox.offsetWidth;
       let marginLeft = parseInt(style.marginLeft);
 
-      // Adjust the centering to the box prior to the middle
-      // No need to adjust for border width in boxWidth calculation, as offsetWidth already includes it
       centeringAdjustment -= (boxWidth + marginLeft) / 2;
     }
 
-    // Set the scroll position to the adjusted center
     reel.scrollLeft = centeringAdjustment;
-  });
+  }
+
+  // Function to setup navigation buttons with centering logic
+  function setupNavigation(reel, boxes, initialIndex) {
+    const prevButton = document.getElementById('reelButtonPrev');
+    const nextButton = document.getElementById('reelButtonNext');
+    let currentIndex = initialIndex;
+    const imageDescription = document.getElementById('image-description');
+
+    const updateAriaLive = (index) => {
+      const imgAltText = boxes[index].querySelector('img').alt;
+      if (imageDescription) imageDescription.textContent = imgAltText;
+    };
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = currentIndex < boxes.length - 1 ? currentIndex + 1 : 0;
+      scrollToImage(reel, boxes, currentIndex);
+      updateAriaLive(currentIndex);
+    });
+    prevButton.addEventListener('click', () => {
+      currentIndex = currentIndex > 0 ? currentIndex - 1 : boxes.length - 1;
+      scrollToImage(reel, boxes, currentIndex);
+      updateAriaLive(currentIndex);
+    });
+
+    // Initial update for the first selected image
+    updateAriaLive(currentIndex);
+  }
+
+  // Function to scroll to the image ensuring it's centered if possible
+  function scrollToImage(reel, boxes, index) {
+    const targetBox = boxes[index];
+    const reelWidth = reel.offsetWidth;
+    const boxWidth = targetBox.offsetWidth;
+    const boxLeft = targetBox.offsetLeft;
+    const reelScrollWidth = reel.scrollWidth;
+
+    let targetScrollPos = boxLeft + (boxWidth / 2) - (reelWidth / 2);
+
+    // Adjust for first and last images
+    if (index === 0) {
+      targetScrollPos = 0;
+    } else if (index === boxes.length - 1) {
+      targetScrollPos = reelScrollWidth - reelWidth;
+    }
+
+    reel.scrollTo({
+      left: targetScrollPos,
+      behavior: 'smooth'
+    });
+  }
+
+  // Main initialization function
+  function initializeSlider() {
+    const reel = document.querySelector('.reel__images') as HTMLElement;
+    const boxes = reel.querySelectorAll('li') as NodeListOf<HTMLElement>;
+
+    centerReel(reel, boxes);
+
+    // Calculate initially centered image index
+    let initialIndex;
+    if (boxes.length % 2 === 0) {
+      initialIndex = Math.floor(boxes.length / 2) - 1;
+    } else {
+      initialIndex = Math.ceil(boxes.length / 2) - 1;
+    }
+
+    setupNavigation(reel, boxes, initialIndex);
+  }
+
+  // Attach the initialization function to the DOMContentLoaded event
+  document.addEventListener('DOMContentLoaded', initializeSlider);
 </script>
 
 <style lang="scss">
-  // @import '../styles/20-mixins/media-query.scss';
-
   .reel {
+    position: relative;
+    --space-skip-link-block: calc(var(--space-l-xl) + var(--space-gutter));
+  }
+
+  .reel__images {
     display: flex;
-    block-size: min(50vh, 42vw);
+    block-size: min(min(50vh, 42vw), 30rem);
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-color: #fff #000;
     padding-inline: var(--space-gutter);
 
     & .l-box {
       --space-box: 0;
     }
-  }
 
-  .reel::-webkit-scrollbar {
-    block-size: 1rem;
-  }
-  .reel::-webkit-scrollbar-track {
-    background-color: #000;
-  }
-  .reel::-webkit-scrollbar-thumb {
-    background-color: #000;
-    background-image: linear-gradient(#000 0, #000 0.25rem, #fff 0.25rem, #fff 0.75rem, #000 0.75rem);
-  }
-
-  .reel > * {
+    // Hide scrollbar for Webkit (Chrome, Safari, newer versions of Opera)
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    // Hide scrollbar for IE, Edge, and Firefox
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  
+    & > * {
     flex: 0 0 auto;
+    }
+
+    & > * + * {
+      margin-inline-start: var(--space-gutter-s);
+    }
   }
 
-  .reel > * + * {
-    margin-inline-start: var(--space-gutter-s);
-  }
-
-  .reel.overflowing {
-    // padding-block-end: 1rem;
+  .reel__controls {
+    --cluster-horizontal-alignment: center;
+    --space-cluster: var(--space-s);
+    --button-radius: 50%;
+    --button-padding: var(--space-s-m);
   }
 </style>
