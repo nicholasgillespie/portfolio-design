@@ -4,9 +4,9 @@ const { items } = Astro.props;
 ---
 
 <div class="reel | l-canvas--full-width">
+  <SkipLink targetId="contact" />
+  <span aria-live="polite" class="u-vh" id="image-description"></span>
   <ul role="list" class="reel__images | u-mbs-l-xl">
-    <SkipLink targetId="contact" />
-    <span aria-live="polite" class="u-vh" id="image-description"></span>
     {items.map((item) => (
       <li class="l-box l-frame">
         <img src={`images/${item.src}`} alt={item.alt} />

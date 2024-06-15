@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Disciplines from "../components/Disciplines.astro";
 import Button from "../components/Button.astro";
 import Slider from "../components/Slider.astro";
-import SkipLink from "../components/SkipLink.astro";
 const title = "Home"
 ---
 
@@ -16,7 +15,6 @@ const title = "Home"
 
     <div class="solutions__disciplines">
       <h2 class="u-vh">Design disciplines</h2>
-      <SkipLink targetId="about" />
       <Disciplines items={[
         { title: "Graphic Design" },
         { title: "UI/UX" },

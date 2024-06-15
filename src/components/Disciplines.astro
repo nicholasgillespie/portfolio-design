@@ -5,6 +5,7 @@ const { items } = Astro.props;
 ---
 
 <ul role="list" class="l-columns | u-position--relative">
+  <SkipLink targetId="about" />
   {items.map(item => (
     <DisciplinesItem title={item.title} />
   ))}
