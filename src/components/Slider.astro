@@ -6,7 +6,7 @@ const { items } = Astro.props;
 <div class="reel | l-canvas--full-width">
   <SkipLink targetId="contact" />
   <span aria-live="polite" class="u-vh" id="image-description"></span>
-  <ul role="list" class="reel__images | u-mbs-l-xl">
+  <ul role="list" class="reel__images | u-mbs-l-xl" tabindex="0">
     {items.map((item) => (
       <li class="l-box l-frame">
         <img src={`images/${item.src}`} alt={item.alt} />
@@ -115,31 +115,6 @@ const { items } = Astro.props;
 
   // Attach the initialization function to the DOMContentLoaded event
   document.addEventListener('DOMContentLoaded', initializeSlider);
-
-//   document.addEventListener('DOMContentLoaded', () => {
-//   const reel = document.querySelector('.reel__images');
-//   const boxes = reel.querySelectorAll('li');
-//   let currentIndex = 0;
-  
-//   if (reel) {
-//     reel.setAttribute('tabindex', '0');
-
-//     reel.addEventListener('keydown', (event) => {
-//       if (!(event instanceof KeyboardEvent)) return; // Ensure event is a KeyboardEvent
-
-//       switch (event.key) {
-//         case 'ArrowRight':
-//           currentIndex = (currentIndex + 1) % boxes.length;
-//           scrollToImage(reel, boxes, currentIndex);
-//           break;
-//         case 'ArrowLeft':
-//           currentIndex = (currentIndex - 1 + boxes.length) % boxes.length;
-//           scrollToImage(reel, boxes, currentIndex);
-//           break;
-//       }
-//     });
-//   }
-// });
 </script>
 
 <style lang="scss">
