@@ -116,29 +116,29 @@ const { items } = Astro.props;
   // Attach the initialization function to the DOMContentLoaded event
   document.addEventListener('DOMContentLoaded', initializeSlider);
 
-  // document.addEventListener('DOMContentLoaded', () => {
-  // const reel = document.querySelector('.reel__images');
-  // if (reel) {
-  //   reel.setAttribute('tabindex', '0'); // Ensure the reel is focusable if not already set in the markup
+//   document.addEventListener('DOMContentLoaded', () => {
+//   const reel = document.querySelector('.reel__images');
+//   const boxes = reel.querySelectorAll('li');
+//   let currentIndex = 0;
+  
+//   if (reel) {
+//     reel.setAttribute('tabindex', '0');
 
-  //   reel.addEventListener('keydown', (event) => {
-  //     switch (event.key) {
-  //       case 'ArrowRight':
-  //         reel.scrollBy({ left: 100, behavior: 'smooth' }); // Adjust scroll amount as needed
-  //         break;
-  //       case 'ArrowLeft':
-  //         reel.scrollBy({ left: -100, behavior: 'smooth' }); // Adjust scroll amount as needed
-  //         break;
-  //       case 'Home':
-  //         reel.scrollTo({ left: 0, behavior: 'smooth' });
-  //         break;
-  //       case 'End':
-  //         reel.scrollTo({ left: reel.scrollWidth, behavior: 'smooth' });
-  //         break;
-  //       // Implement additional keys as needed, e.g., Page Up, Page Down
-  //     }
-  //   });
-  // }
+//     reel.addEventListener('keydown', (event) => {
+//       if (!(event instanceof KeyboardEvent)) return; // Ensure event is a KeyboardEvent
+
+//       switch (event.key) {
+//         case 'ArrowRight':
+//           currentIndex = (currentIndex + 1) % boxes.length;
+//           scrollToImage(reel, boxes, currentIndex);
+//           break;
+//         case 'ArrowLeft':
+//           currentIndex = (currentIndex - 1 + boxes.length) % boxes.length;
+//           scrollToImage(reel, boxes, currentIndex);
+//           break;
+//       }
+//     });
+//   }
 // });
 </script>
 
