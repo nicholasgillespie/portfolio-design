@@ -8,14 +8,14 @@ const title = "Home"
 ---
 
 <BaseLayout title={title}>
-  <section class="solutions | l-wrapper l-region">
+  <section class="solutions | l-wrapper l-region" aria-labelledby="label_solutions">
     <div class="solutions__content | l-flow l-center" data-center="child-elements">
-      <h1>Design solutions made easy</h1>
+      <h1 id="label_solutions">Design solutions made easy</h1>
       <p>With over ten years of experience in various design disciplines, I’m your one-stop shop for your design needs.</p>
     </div>
 
-    <div class="solutions__disciplines">
-      <h2 class="u-vh">Design disciplines</h2>
+    <div class="solutions__disciplines" aria-labelledby="label_disciplines">
+      <h2 id="label_disciplines" class="u-vh">Design disciplines</h2>
       <SkipLink targetId="about" />
       <Disciplines items={[
         { title: "Graphic Design" },
@@ -28,7 +28,8 @@ const title = "Home"
     </div>
   </section>
 
-  <section id="about" class="about | l-wrapper l-region l-switcher">
+  <section id="about" class="about | l-wrapper l-region l-switcher" aria-labelledby="label_about">
+    <span id="label_about" class="u-vh">About me</span>
     <div class="about__photo">
         <img src="images/image-amy.webp" alt="Portrait of Amy, smiling">
     </div>
@@ -39,8 +40,8 @@ const title = "Home"
     </div>
   </section>
 
-  <section class="work | l-canvas l-region">
-    <h2>My Work</h2>
+  <section class="work | l-canvas l-region" aria-labelledby="label_work">
+    <h2 id="label_work">My Work</h2>
     <Slider items={[
       { src: "image-slide-1.jpg", alt: "Image 1" },
       { src: "image-slide-2.jpg", alt: "Image 2" },
@@ -50,15 +51,15 @@ const title = "Home"
     ]} />
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact" class="contact" aria-labelledby="label_contact">
     <div class="l-wrapper l-region">
       <div class="contact__content | l-box">
         <div class="l-flow">
-          <h2>Book a call with me</h2>
+          <h2 id="label_contact">Book a call with me</h2>
           <p>I’d love to have a chat to see how I can help you. The best first step is for us to discuss your project during a free consultation. Then we can move forward from there.</p>
         </div>
         <div>
-          <Button label="free consulation" variant="secondary" />
+          <Button label="free consultation" variant="secondary" />
         </div>
       </div>
     </div>

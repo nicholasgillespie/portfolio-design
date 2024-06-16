@@ -13,14 +13,16 @@ const { items } = Astro.props;
       </li>
     ))}
   </ul>
-  <div class="reel__controls | l-cluster | u-mbs-l-xl">
+  <div class="reel__controls | l-cluster | u-mbs-l-xl" aria-labelledby="controls-description">
     <span id="controls-description" class="u-vh">
       Use the previous and next buttons to navigate through the images.
     </span>
-    <button id="reelButtonPrev" class="button" aria-label="Go to the previous image" aria-describedby="controls-description">
+    <button id="reelButtonPrev" class="button">
+      <span class="u-vh">Go to the previous image</span>
       <img src="images/icon-arrow-left.svg" alt="">
-    </button>
-    <button id="reelButtonNext" class="button" aria-label="Go to the next image" aria-describedby="controls-description">
+      </button>
+    <button id="reelButtonNext" class="button">
+      <span class="u-vh">Go to the next image</span>
       <img src="images/icon-arrow-right.svg" alt="">
     </button>
   </div>
