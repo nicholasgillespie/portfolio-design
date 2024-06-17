@@ -2,7 +2,7 @@
 
 ## Project Duration
 
-The Portfolio Developer project was actively developed over a period of 4 days, starting on June 10, 2024, and concluding on June 15, 2024.
+The Portfolio Design project was actively developed over a period of 4 days, starting on June 10, 2024, and concluding on June 15, 2024.
 
 ## 2024-06-10 - Afternoon
 
